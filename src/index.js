@@ -1,15 +1,16 @@
-module.exports = function check(str, bracketsConfig) {
-  const bracketConfig = bracketsConfig.map((config) => config.join(""));
-  function bracketRecursion() {
-      if (str.length == 0) return true;
-      for (const conf of bracketConfig)
-          if (str.includes(conf))
-              return bracketRecursion(
-                  (str = str.replace(conf, "")),
-                  bracketConfig
-              );
+function check(str, bracketsConfig) {
 
-      return false;
+  const bracketConfig = bracketsConfig.map((config) => config.join(""));
+
+  function Recursion(){
+    if(str.length==0)
+      return true;
+    for(const x of bracketConfig)
+      if(str.includes(x))
+        return Recursion(str = str.replace(x,""), bracketConfig);
+    return false;
   }
-  return bracketRecursion(str, bracketConfig);
+  return Recursion(str, bracketConfig);
 };
+
+
