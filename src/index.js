@@ -1,4 +1,4 @@
-function check(str, bracketsConfig) {
+module.exports = function check(str, bracketsConfig) {
 
   const bracketConfig = bracketsConfig.map((config) => config.join(""));
 
